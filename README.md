@@ -1,3 +1,19 @@
+# TRPC
+how it's connected
+
+root route include trpc router factory and custom trpc routers
+server/api/root rout 
+    --> server/api/routers/example (trpc route def)
+    --> server/api/trpc (trpc/server it creates trpc compoenent takes rout input)
+        --> server/db [prisma] 
+            --> prisma API
+
+from client create NextApiHandler includes
+pages/api/trpc/[trpc] (includes the /server/api/root router)
+createTRPCContext from /server/api/trpc ??? not 
+
+from client that uses the createNextApiHandler...
+
 # Create T3 App
 
 This is a [T3 Stack](https://create.t3.gg/) project bootstrapped with `create-t3-app`.

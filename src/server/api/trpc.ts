@@ -93,3 +93,7 @@ export const createTRPCRouter = t.router;
  * are logged in.
  */
 export const publicProcedure = t.procedure;
+
+// missing protected procedure because no auth yet, 
+// add protected after include auth
+// https://github.com/jherr/notetaker/blob/main/src/server/api/trpc.ts
