@@ -17,5 +17,19 @@ export const userRouter = createTRPCRouter({
     return ctx.db.user.findMany();
   }),
 
-  
+  createUser: publicProcedure
+  .input(z.object({ 
+    email: z.string(), 
+    name: z.string(), 
+  }))
+  .mutation(({ ctx, input }) => {
+    return ctx.db.user.create({
+      data: {
+        email: input.email,
+        name: input.name,
+      },
+      
+    });
+  }),
+
 });
