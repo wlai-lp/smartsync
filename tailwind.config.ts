@@ -5,5 +5,8 @@ export default {
   theme: {
     extend: {},
   },
+  daisyui: {
+    themes: ["light", "dark", "cupcake", "winter"],
+  },
   plugins: [require("daisyui")],
 } satisfies Config;
