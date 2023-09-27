@@ -11,7 +11,7 @@ export default function Home() {
 
   // to use mutation
   // 1. call useMutation
-  // const createUser = api.user.createUser.useMutation({});
+  const createUser = api.user.createUser.useMutation({});
   // 2. call mutate with data
   // this throwing error in the vercel for somereason
   // createUser.mutate({
