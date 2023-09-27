@@ -7,16 +7,17 @@ import { Header } from "../components/Header"
 
 export default function Home() {
   const hello = api.example.hello.useQuery({ text: "from tRPC" });
-  const users = api.user.getAll.useQuery();
+  // const users = api.user.getAll.useQuery();
 
   // to use mutation
   // 1. call useMutation
-  const createUser = api.user.createUser.useMutation({});
+  // const createUser = api.user.createUser.useMutation({});
   // 2. call mutate with data
-  createUser.mutate({
-    email: 'wei@lia.com' + Math.random(),
-    name: 'sillynutz'
-  });  
+  // this throwing error in the vercel for somereason
+  // createUser.mutate({
+  //   email: 'wei@lia.com' + Math.random(),
+  //   name: 'sillynutz'
+  // });  
 
   return (
     <>
