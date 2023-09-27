@@ -32,7 +32,7 @@ export default function Home() {
             {hello.data ? hello.data.greeting : "Loading tRPC query..."}
           </p>
         {/* <Content /> */}
-        <div>{JSON.stringify(users)}</div>
+        {/* <div>{JSON.stringify(users)}</div> */}
       </main>
     </>
   );
