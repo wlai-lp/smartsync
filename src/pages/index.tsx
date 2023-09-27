@@ -3,7 +3,7 @@ import Link from "next/link";
 
 import { api } from "~/utils/api";
 
-import { Header } from "../components/Header"
+import { Header } from "../components/Header";
 
 export default function Home() {
   const hello = api.example.hello.useQuery({ text: "from tRPC" });
@@ -11,13 +11,14 @@ export default function Home() {
 
   // to use mutation
   // 1. call useMutation
+  console.log("this is executed on the server side");
   const createUser = api.user.createUser.useMutation({});
   // 2. call mutate with data
   // this throwing error in the vercel for somereason
   // createUser.mutate({
   //   email: 'wei@lia.com' + Math.random(),
   //   name: 'sillynutz'
-  // });  
+  // });
 
   return (
     <>
@@ -29,12 +30,25 @@ export default function Home() {
       <main>
         <Header />
         <p className="text-2xl text-white">
-            {hello.data ? hello.data.greeting : "Loading tRPC query..."}
-          </p>
+          {hello.data ? hello.data.greeting : "Loading tRPC query..."}
+        </p>
+        <div>
+          <button
+            className="btn btn-primary"
+            onClick={() => {
+              console.log("clicked");
+              createUser.mutate({
+                email: "wei@lia.com" + Math.random(),
+                name: "sillynutz",
+              });
+            }}
+          >
+            add new user
+          </button>
+        </div>
         {/* <Content /> */}
         {/* <div>{JSON.stringify(users)}</div> */}
       </main>
     </>
   );
 }
-
